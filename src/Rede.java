@@ -1,14 +1,10 @@
 import java.util.ArrayList;
 
 public class Rede {
-
     ArrayList<Amigo> amigos = new ArrayList<Amigo>();
-
-
     public void adicionarAmigo(Amigo amigo) {
         amigos.add(amigo);
     }
-
     public String timeline() {
         StringBuilder timeline = new StringBuilder("");
         for (Amigo amigo : amigos) {
