@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Post {
     String message;
     ArrayList<Curtida> curtidas = new ArrayList<Curtida>();
-
+    String nomesQueMaisCurtiram;
 
     public Post(String message) {
         this.message = message;
@@ -23,12 +23,21 @@ public class Post {
         return message + ": " + curtidas.size() + " curtidas";
     }
 
-    public String retornaNomesQueCurtiram() {
-        StringBuilder nomesQueCurtiram = new StringBuilder();
-        for (Curtida curtida : curtidas) {
-            String nomeAutor = curtida.getAutor().name;
-            nomesQueCurtiram.append(nomeAutor).append(" ");
+    private void setNomesQueCurtiram() {
+        StringBuilder nomes = new StringBuilder();
+        if(curtidas.size() > 0) {
+            for (Curtida curtida : curtidas) {
+                String nomeAutor = curtida.getAutor().name;
+                nomes.append(nomeAutor).append(" ");
+            }
+            this.nomesQueMaisCurtiram = nomes.toString();
+        }else{
+            this.nomesQueMaisCurtiram = "Ninguém curtiu esse post! =(";
         }
-        return nomesQueCurtiram.toString();
+    }
+
+    public String retornaNomesQueCurtiram() {
+        setNomesQueCurtiram();
+        return nomesQueMaisCurtiram;
     }
 }

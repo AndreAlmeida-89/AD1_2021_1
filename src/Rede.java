@@ -4,7 +4,7 @@ public class Rede {
     ArrayList<Amigo> amigos = new ArrayList<Amigo>();
 
     public void adicionarAmigo(Amigo amigo) {
-        amigos.add(amigo);
+        this.amigos.add(amigo);
     }
 
     public String timeline(){
